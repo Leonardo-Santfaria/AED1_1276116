@@ -1,0 +1,50 @@
+/* --------------------------------------------------------------------------
+Disciplina  : Algortimo e Estrutura de Dados 2026S1
+Nome        : Leonardo Rafael dos Santos Faria
+Linguagem   : C
+Problema    : https://judge.beecrowd.com/pt/problems/view/1080 - (com alocação dinâmica)
+Data        : 02/09/2026
+Objetivo    : Ler 100 números, achar o número maior e sua posição.
+Dificuldade : Não teve dificuldade pela lógica já estar pronta do exercício 1080 sem alocação dinãmica
+Uso de IA   : --
+-------------------------------------------------------------------------- */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct{
+    int maior;
+    int pos_maior;
+}Mai;
+
+Mai find_maior(int vet[], int range){
+    Mai x;
+    if(range == 1){
+        x.maior = vet[0];
+        x.pos_maior = 0;
+        return x;
+    }else{
+        x = find_maior(vet, range-1);
+        if(x.maior>vet[range-1]){
+            return x;
+        }else{
+            x.maior = vet[range-1];
+            x.pos_maior = range-1;
+            return x;
+        }
+    }
+    return x;
+}
+
+int main(){
+    Mai m;
+    int *x;
+    x = (int*) malloc(100*sizeof(int));
+    for(int i=0;i<100;i++){   
+        scanf("%d", &x[i]);
+    }
+    m = find_maior(x, 100);
+    printf("%d\n", m.maior);
+    printf("%d\n", m.pos_maior+1);
+    free(x);
+}
