@@ -5,7 +5,7 @@ Linguagem   : C
 Problema    : https://judge.beecrowd.com/pt/problems/view/1080
 Data        : 02/09/2026
 Objetivo    : Ler 100 números, achar o número maior e sua posição.
-Dificuldade : Sem dificuldades.
+Dificuldade : --
 Uso de IA   : --
 -------------------------------------------------------------------------- */
 
